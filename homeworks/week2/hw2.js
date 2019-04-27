@@ -6,4 +6,4 @@ function capitalize(str) {
     return char;
   } return str;
 }
-console.log(capitalize('hello'));
+console.log(capitalize(',hello'));
