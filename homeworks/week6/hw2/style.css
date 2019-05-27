@@ -1,0 +1,51 @@
+/*拍手*/
+
+.claps {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    border: #ADADAD solid 1px;
+    border-radius: 99em;
+    top: 150px;
+    left: 35px;
+}
+
+.clap {
+    position: absolute;
+    top: 28px;
+    left: 19px;
+}
+
+.clap-numbers {
+    position: absolute;
+    top: 10px;
+    left: 17px;  
+}
+
+/*拍手RWD*/
+
+@media screen and (max-width:1120px){
+    .claps{
+        display: none;
+    }
+}
+
+/*內文*/
+
+.wrapper {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0px 35px;
+}
+
+.title {
+    font-size: 42px;
+    margin: 40px 0;
+}
+
+.passage {
+    font-size: 20px;
+    color: #212f3c;
+}
+
+
