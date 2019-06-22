@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            body{
+                position:absolute;
+                top: 50%;
+                left: 50%;
+                margin: -110px 0 0 -116px;
+                text-align: center;
+            }
+            .text{
+                font-size: 30px;
+                font-weight: bold;
+                margin: 10px; 
+            }
+            /*改變background*/
+            .change{
+                background-color:#FA7268;
+            }
+            /*初始值display:none*/
+            .hidden{
+                display: none;
+            }
+        </style>
+    
+    </head>
+    
+    <body>
+        <div class='container'>
+            <div class='text'>
+                畫面變色時請點擊
+            </div>
+            <button class='hidden'>再玩一次</button>
+        </div>
+        <script>
+            //遊戲規則
+            //再玩一次的按鈕要在遊戲結束時才會出現，點完確定之後出現再來一次的按鈕
+            //點擊再來一次的按鈕之後
+            //若是失敗，畫面就不會再變色了，除非你點選再玩一次
+            //成功以後如果再點一次畫面，不會有任何反應
+            //可以先不考慮再玩一次的功能，先實作一次性的會比較簡單
+            //那就是畫面會在隨機的時間變色，你看到變色的那瞬間就要點擊螢幕
+            //點擊完之後會彈出一個視窗跟你說從變色到你按下按鈕總共多少秒，若是點的時候畫面還沒變色，會彈出視窗跟你說你失敗了。無論成功或失敗都可以再玩一次
+
+            let start = 0; //時間變數
+            let done = false; //玩完後的初始狀態
+
+            //function change 產生隨機時間，改變背景顏色
+            function change() {  
+                const t = (Math.random()*2+1).toFixed(2); //隨機產生1-3的秒數
+                console.log(t); //印出來跑了幾秒
+                //setTimeout 指定一段程式碼或函式在多少毫秒(ms)後執行，並回傳此定時器的編號
+                setTimeout(function(){
+                    const body = document.querySelector('body'); 
+                    body.classList.add('change'); //改變顏色 style.background，透過 add change
+                    start = new Date().getTime(); //改變背景顏色之後，設定初始時間（單位：毫秒）
+                }, t*1000); //參數（毫秒）、秒數*1000
+            }
+            window.onload = change(); //window onload 時執行 change function 
+            
+
+            //點擊畫面時出現alert視窗
+            //如果
+            document.addEventListener('click',function(e){ //點選整個 document 的時候增加 click listener  
+                const body = document.querySelector('body'); //選 body 
+                const changed = body.classList.contains('change'); //命名 changed 的狀態
+                if (changed){ //變色的時候就按，計算秒數
+                    if (done == false) { //也可以寫成!done //如果遊戲結束了
+                        let end = new Date().getTime(); //算end時間(單位：毫秒）
+                        let time = ((end - start)/1000).toFixed(2); //結束時間-初始時間/1000轉成秒.toFixed(2)
+                        alert(`你的成績：${time}秒`); //跑出你的成績
+                        done = true; //改成true，表示玩完的時候，不需要再玩一次
+                        document.querySelector('button').classList.remove('hidden'); //顯示再玩一次的button
+                    }
+                } else {
+                    alert('還沒變色喔，失敗！') //還沒變色就按，顯示失敗
+                }; 
+            })
+
+            // 思路: 點再玩一次按鈕的時候做以下事情
+            // 初始狀態: body classList=[], button classList=['hidden'],
+            //          start=0, done=false
+            // 玩完狀態: body classList=['change'], button classList=[],
+            //          start>0, done=true
+            // 按重玩: 把上述狀態全回復成初始狀態
+
+            document.querySelector('button').addEventListener('click',function(e){
+                const body = document.querySelector('body'); 
+                body.classList.remove('change'); //改變bg color 
+                document.querySelector('button').classList.add('hidden'); //加上hidden
+                start = 0; //時間回覆成0
+                done = false; //狀態改為flase 
+                e.stopPropagation(); //因為點html的任一地方會跑上面的事件，所以改成stopPropagation
+                change(); //呼叫 change function 重新玩一次
+            });
+
+        </script>
+    </body>
+</html>
