@@ -1,0 +1,187 @@
+body{
+    margin: 0;
+    background-color: rgb(247, 246, 246);
+    font-family: PingFangTC-Regular,noto sans tc,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+    font-weight: 400;
+    line-height: 1.67;
+    color: #222;
+}
+
+
+/*warning*/
+.warning{
+    background-color:#f9595f;
+    color: white;
+    text-align: center;
+}
+p.warning{
+    font-size: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/*navbar*/
+nav{
+    background-color: white;
+    color: #f9595f;
+    padding-right: 40px;
+    padding-left: 40px;
+    font-size: 20px;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-right{
+    display: flex;
+}
+
+li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/*wrapper*/
+.wrapper{
+    padding: 30px;
+    max-width: 600px;
+    margin: auto; 
+    margin-bottom: 15px;  
+}
+
+
+/*textarea*/
+textarea{
+    width: 100%;
+    height: 150px;
+    overflow: auto;
+    border-radius: .4rem;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 1.5;
+    outline: none;
+}
+
+
+p {
+    font-size: 18px;
+}
+
+/*comment-box*/
+.comment-box{
+    width: 100%;
+    border-radius: .4rem;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    margin: 30px 0;
+    padding: 30px 0;
+    box-sizing: border-box;
+    position: relative;
+    word-wrap: break-word;
+    background-color: #fff;
+}
+
+.nickname {
+    font-size: 18px;
+    color: #f9595f;
+    padding: 0px 20px;
+    padding-bottom: 20px;
+}
+.comment{
+    font-size: 18px;
+    color: #222222;
+    padding: 0px 20px;
+    padding-bottom: 30px;
+}
+.time{
+    font-size: 12px;
+    color: #444444;
+    display: inline-block;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 0px 10px;
+    padding-bottom: 10px;
+}
+
+.update{
+    font-size: 12px;
+    color: #444444;
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    padding: 0px 10px;
+}
+
+.delete{
+    font-size: 12px;
+    color: #444444;
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    padding: 0px 10px;
+}
+
+.reply{
+    font-size: 12px;
+    color: #444444;
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    padding: 0px 10px;
+}
+
+button{
+    border:0;
+    background-color: #f9595f;
+    border-color: #f8343b;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    font-size: 14px;
+    padding: 10px;
+}
+.submit-btn{
+    font-size: 24px;
+    text-align:right;
+    margin: 10px 0;
+}
+  
+button:hover{
+    color:#f9595f;
+    background-color:#fff;
+    border:1px #f9595f solid;
+    font-size: 14px;
+    padding: 10px;
+}
+
+a{
+    color:#f9595f;
+    cursor:pointer;
+    text-decoration:none;
+}
+a:hover{
+    color:#fc7579;
+}
+
+/*分頁*/
+.page_select{
+    font-size:18px;
+}
+
+.page_show{
+    font-size:14px;
+    color: rgb(67, 67, 67);
+}
+
+.page_select, .page_show{
+    text-align: center;
+    margin: 10px;
+}
