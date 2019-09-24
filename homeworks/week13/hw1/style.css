@@ -1,0 +1,45 @@
+/*Parent Element*/
+.container{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    max-width: 960px;
+}
+
+/*Children Element*/
+.col-1 {flex: 8.33%;}
+.col-2 {flex: 16.66%;}
+.col-3 {flex: 25%;}
+.col-4 {flex: 33.33%;}
+.col-5 {flex: 41.66%;}
+.col-6 {flex: 50%;}
+.col-7 {flex: 58.33%;}
+.col-8 {flex: 66.66%;}
+.col-9 {flex: 75%;}
+.col-10 {flex: 83.33%;}
+.col-11 {flex: 91.66%;}
+.col-12 {flex: 100%;}
+
+/*RWD*/
+@media screen and (max-width:720px){
+    [class*="col-"]{
+        flex:100%;
+    }
+}
+
+/*Decoration*/
+.col-4{
+    height: 300px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    background-color: #FC766A;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
