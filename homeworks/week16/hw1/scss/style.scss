@@ -1,0 +1,146 @@
+$myFontSize: 25px;
+$paragraphFontSize: 18px;
+
+$primaryColor: #9ad3de;
+$primaryLight: #f7f7f7;
+$primaryDark: #89bdd3;
+
+$fontColorLight: white;
+$fontColorDark: #3b3a36;
+
+$myFont: sans-serif;
+
+@mixin border-top($color, $width){
+    border-top: $color solid $width;
+}
+
+@mixin pointer{
+    &:hover {
+        background-color: $primaryDark;
+        transition: background-color 0.3s ease-in;
+        cursor: pointer;
+    }
+}
+
+/* body */
+body { 
+    margin:0;
+    font-family: $myFont;
+}
+
+p {
+    display: block;
+    font-size: $paragraphFontSize;
+}
+
+/* nav */
+nav{
+    background-color: $primaryDark;
+    width: 100%;
+    position: sticky;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    ul {
+        margin: 0px;
+    }
+    li {
+        display: inline-block;
+        margin: 15px;  
+        font-size: $myFontSize;
+        color: $fontColorLight;
+        @include pointer;
+    }
+}
+
+
+/* header */
+
+.header {
+    background-color: $primaryLight;
+    .wrapper {
+        max-width: 960px;
+        margin: 0px auto;
+        padding: 42px 25px; 
+    }
+    .title {
+        font-size: 66px;
+    }
+    .subtitle {
+        font-size: 20px;
+        color: $fontColorDark;
+    }
+    .btn-header {
+        background-color: $primaryColor;
+        color: $fontColorLight;
+        border-radius: 5px; 
+        padding: 15px 30px;
+        text-align: center;
+        font-size: 20px;
+        @include pointer;
+    }
+}
+
+
+/* passage */
+
+.passage {  /*最外層*/
+    max-width: 960px;  /*設定寬度*/
+    margin: 0px auto;  /*置中*/
+    padding: 42px 25px; /*設定padding拉出上下左右間距*/
+    display: flex;  /*RWD*/
+    flex-wrap: wrap;  /*換行*/
+
+    .passage-btn {
+        background-color: $primaryColor;
+        color: $fontColorLight;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 20px;
+        @include pointer;
+    }
+    
+    .heading {
+        font-size: 36px;
+        color: $primaryDark;
+    }
+}
+
+/*不知道為什麼flex放在巢狀裡面會失效*/
+.passage-wrapper {  /*裡面各個block*/ 
+    flex: none;
+    max-width: 30%; 
+    margin: 0 auto;
+}
+
+
+/* RWD */
+@media (max-width:850px){
+    .passage {
+        padding-top: 22px;
+    }
+    .passage-wrapper {
+        max-width: 100%;
+        margin-top: 50px;
+    }
+    .footer {
+        max-width: 90%;
+    }
+}
+
+/* footer */
+
+.footer {
+    max-width: 960px;  /*設定寬度*/
+    margin: 0px auto;  /*設定auto才回置中*/
+    padding: 0px 25px;   
+
+    footer {
+        @include border-top($primaryColor, 1px);
+        padding: 20px 0;
+    }
+}
+
+
